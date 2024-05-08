@@ -1,4 +1,5 @@
-from graphics import Window, Point, Line, Cell
+from graphics import Window, Point
+from cell import Cell
 
 if __name__ == "__main__":
   win = Window(800, 600)
