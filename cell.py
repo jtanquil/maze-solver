@@ -36,5 +36,22 @@ class Cell:
       self._win.draw_line(top_wall)
 
     if self.has_bottom_wall:
-      bottom_wall = Line(bottom_left, bottom_rights)
+      bottom_wall = Line(bottom_left, bottom_right)
       self._win.draw_line(bottom_wall)
+
+  def get_x_midpoint(self):
+    return self._x1 + abs(self._x2 - self._x1) // 2
+  
+  def get_y_midpoint(self):
+    return self._y1 + abs(self._y2 - self._y1) // 2
+
+  def draw_move(self, to_cell, undo = False):
+    line_color = "gray" if undo else "red"
+    self_x_midpoint = self.get_x_midpoint()
+    self_y_midpoint = self.get_y_midpoint()
+    other_x_midpoint = to_cell.get_x_midpoint()
+    other_y_midpoint = to_cell.get_y_midpoint()
+    move_line = Line(Point(self_x_midpoint, self_y_midpoint), Point(other_x_midpoint, other_y_midpoint))
+
+    print(f"drawing line from ({self_x_midpoint}, {self_y_midpoint}) to ({other_x_midpoint}, {other_y_midpoint})")
+    self._win.draw_line(move_line, line_color)
