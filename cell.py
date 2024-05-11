@@ -24,17 +24,17 @@ class Cell:
     bottom_left = Point(self._x1, self._y2)
     bottom_right = Point(self._x2, self._y2)
 
-    left_wall_color = "black" if self.has_left_wall else "white"
-    self._win.draw_line(Line(top_left, bottom_left), left_wall_color)
+    # left_wall_color = "black" if self.has_left_wall else "white"
+    # self._win.draw_line(Line(top_left, bottom_left), left_wall_color)
 
-    right_wall_color = "black" if self.has_right_wall else "white"
-    self._win.draw_line(Line(top_right, bottom_right), right_wall_color)
+    # right_wall_color = "black" if self.has_right_wall else "white"
+    # self._win.draw_line(Line(top_right, bottom_right), right_wall_color)
 
-    top_wall_color = "black" if self.has_top_wall else "white"
-    self._win.draw_line(Line(top_left, top_right), top_wall_color)
+    # top_wall_color = "black" if self.has_top_wall else "white"
+    # self._win.draw_line(Line(top_left, top_right), top_wall_color)
 
-    bottom_wall_color = "black" if self.has_bottom_wall else "white"
-    self._win.draw_line(Line(bottom_left, bottom_right), bottom_wall_color)
+    # bottom_wall_color = "black" if self.has_bottom_wall else "white"
+    # self._win.draw_line(Line(bottom_left, bottom_right), bottom_wall_color)
 
   def get_x_midpoint(self):
     return self._x1 + abs(self._x2 - self._x1) // 2

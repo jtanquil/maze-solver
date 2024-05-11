@@ -97,7 +97,11 @@ class Maze:
         self._draw_cell(i, j)
         self._break_walls_r(new_i, new_j)
 
+  def _reset_cells_visited(self):
+    for i in range(self.num_cols):
+      for j in range(self.num_rows):
+        self._cells[i][j].visited = False
 
   def _animate(self):
-    self.win.redraw()
+    # self.win.redraw()
     time.sleep(0.005)
