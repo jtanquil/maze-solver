@@ -11,6 +11,7 @@ class Cell:
     self._x2 = None
     self._y2 = None
     self._win = win
+    self.visited = False
 
   def draw(self, x1, y1, x2, y2):
     self._x1 = x1
@@ -23,21 +24,17 @@ class Cell:
     bottom_left = Point(self._x1, self._y2)
     bottom_right = Point(self._x2, self._y2)
 
-    if self.has_left_wall:
-      left_wall = Line(top_left, bottom_left)
-      self._win.draw_line(left_wall)
-    
-    if self.has_right_wall:
-      right_wall = Line(top_right, bottom_right)
-      self._win.draw_line(right_wall)
+    left_wall_color = "black" if self.has_left_wall else "white"
+    self._win.draw_line(Line(top_left, bottom_left), left_wall_color)
 
-    if self.has_top_wall:
-      top_wall = Line(top_left, top_right)
-      self._win.draw_line(top_wall)
+    right_wall_color = "black" if self.has_right_wall else "white"
+    self._win.draw_line(Line(top_right, bottom_right), right_wall_color)
 
-    if self.has_bottom_wall:
-      bottom_wall = Line(bottom_left, bottom_right)
-      self._win.draw_line(bottom_wall)
+    top_wall_color = "black" if self.has_top_wall else "white"
+    self._win.draw_line(Line(top_left, top_right), top_wall_color)
+
+    bottom_wall_color = "black" if self.has_bottom_wall else "white"
+    self._win.draw_line(Line(bottom_left, bottom_right), bottom_wall_color)
 
   def get_x_midpoint(self):
     return self._x1 + abs(self._x2 - self._x1) // 2

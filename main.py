@@ -1,3 +1,5 @@
+import random
+
 from graphics import Window, Point
 from maze import Maze
 from cell import Cell
@@ -16,6 +18,8 @@ if __name__ == "__main__":
   # cell.draw(top_left.x, top_left.y, bottom_right.x, bottom_right.y)
   # cell2.draw(top_left2.x, top_left2.y, bottom_right2.x, bottom_right2.y)
   # cell.draw_move(cell2)
-  maze = Maze(0, 0, 6, 8, 50, 50, win)
-
+  maze = Maze(50, 50, 20, 25, 25, 25, win)
+  maze._break_entrance_and_exit()
+  maze._break_walls_r(0, 0)
+  
   win.wait_for_close()
