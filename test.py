@@ -46,5 +46,12 @@ class TestMaze(unittest.TestCase):
       for j in range(self.num_rows):
         self.assertFalse(self.maze._cells[i][j].visited)
 
+  def test_maze_solve(self):
+    self.maze._break_walls_r(0, 0)
+    self.maze._reset_cells_visited()
+    self.maze.solve()
+
+    self.assertTrue(self.maze._cells[self.num_cols - 1][self.num_rows - 1].visited)
+
 if __name__ == "__main__":
   unittest.main()
